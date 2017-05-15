@@ -5,7 +5,7 @@ var Alexa = require('alexa-sdk');
 //TODO: The items below this comment need your attention.
 //=========================================================================================================================================
 
-//Replace with your app ID (OPTIONAL).  You can find this value at the top of your skill's page on http://developer.amazon.com.  
+//Replace with your app ID (OPTIONAL).  You can find this value at the top of your skill's page on http://developer.amazon.com.
 //Make sure to enclose your value in quotes, like this: var APP_ID = "amzn1.ask.skill.bb4045e6-b3e8-4133-b650-72923c5980f1";
 var APP_ID = undefined;
 
@@ -18,7 +18,20 @@ var STOP_MESSAGE = "Goodbye!";
 //=========================================================================================================================================
 //TODO: Replace this data with your own.  You can find translations of this data at http://github.com/alexa/skill-sample-node-js-fact/data
 //=========================================================================================================================================
-var data = [
+var COOL_SPACE_FACTS = [
+    "All of space is completely silent.",
+    "One million Earths can fit inside the Sun.",
+    "There are giant pools of water floating in space.",
+    "Oxygen circulates around each space suit helmet to prevent the visors from misting.",
+    "A soup can full of neutron star material would have more mass than the Moon.",
+    "If you ever stepped on the moon, your footprints would remain there forever.",
+    "The moon actually used to be a chunk of the Earth.",
+    "Wormholes might be linked to quantum physics.",
+    "Saturn's moon Titan has plenty of evidence of organic (life) chemicals in its atmosphere.",
+    "The full cost of a spacesuit is about $11 million although 70% of this is for the backpack and the control module.",
+    "Nicolaus Copernicus was the astronomer who first suggested that the Sun was the centre, and that the Earth went round the sun.",
+    "Over 100 artificial satellites are now launched into space every year, a few of which are space telescopes.",
+    "Voyager 2 has flown over 6 billion km and is heading out of the solar system after passing close to Neptune in 1989.",
     "A year on Mercury is just 88 days long.",
     "Despite being farther from the Sun, Venus experiences higher temperatures than Mercury.",
     "Venus rotates counter-clockwise, possibly because of a collision in the past with an asteroid.",
@@ -35,7 +48,7 @@ var data = [
 ];
 
 //=========================================================================================================================================
-//Editing anything below this line might break your skill.  
+//Editing anything below this line might break your skill.
 //=========================================================================================================================================
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
@@ -49,7 +62,7 @@ var handlers = {
         this.emit('GetNewFactIntent');
     },
     'GetNewFactIntent': function () {
-        var factArr = data;
+        var factArr = COOL_SPACE_FACTS;
         var factIndex = Math.floor(Math.random() * factArr.length);
         var randomFact = factArr[factIndex];
         var speechOutput = GET_FACT_MESSAGE + randomFact;
